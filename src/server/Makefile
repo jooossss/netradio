@@ -1,0 +1,9 @@
+CFLAGS+=-I../include/ -pthread
+LDFLAGS+=-pthread
+
+all:server 
+
+server:server.o thr_channel.o thr_list.o mytbf.o medialib.o
+	$(CC) $^ -o $@ $(CFLAGS) $(LDFlAGS)
+clean:
+	rm *.o server -rf
